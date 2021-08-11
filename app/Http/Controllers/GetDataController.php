@@ -12,4 +12,7 @@ class GetDataController extends Controller
         $activity = Activity::all();
         return view('table', ['activity'=> $activity]);
     }
+    
+
+    
 }

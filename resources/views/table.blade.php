@@ -16,7 +16,7 @@
             defer
         ></script>
     </head>
-    <body class="bg-blue-100 grid">
+    <body class="bg-blue-100">
         <div class="p-2 container mx-auto mt-4">
             <a
                 class="mx-auto bg-blue-400 border-blue-800 px-4 py-1 rounded-xl"
@@ -55,7 +55,8 @@
                 container
                 mx-auto
                 flex flex-col
-                md:flex-row md:justify-between
+                md:flex-row
+                :justify-between
                 justify-center
                 max-w-md
             "
@@ -247,7 +248,8 @@
                                             {{$value->duedate}}
                                         </td>
                                         <td class="px-4 py-3 text-sm border">
-                                            <button
+                                            <a
+                                                href="{{route('activities.edit', $value->id)}}"
                                                 class="
                                                     bg-blue-400
                                                     border-blue-800
@@ -255,11 +257,11 @@
                                                     py-1
                                                     rounded-xl
                                                 "
-                                                value="Edit"
+                                                >Edit</a
                                             >
-                                                Edit
-                                            </button>
+
                                             <a
+                                                href="{{route('activities.destroy', $value->id)}}"
                                                 class="
                                                     bg-red-500
                                                     border-red-900
