@@ -123,9 +123,9 @@
                             class="rounded p-1 bg-blue-100 w-full"
                         >
                             <option disabled selected>Status</option>
-                            <option value="new">New</option>
-                            <option value="open">Open</option>
-                            <option value="closed">Closed</option>
+                            <option value="New">New</option>
+                            <option value="Open">Open</option>
+                            <option value="Closed">Closed</option>
                         </select>
                         @error('status')
                         <p class="text-red-700 text-xs mt-1">

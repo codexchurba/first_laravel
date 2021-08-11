@@ -33,5 +33,19 @@ class EditDataController extends Controller
 
     }
 
+    public function show($id)
+    {    
+        $activities = Activity::find($id);
+        return view('table.show',compact('activities'));
+    }
+
+    public function destroy(Activity $activity)
+    {    
+        $activity->delete();
+        session()->flash('success', 'OJT Activity Deleted Succesfully!');
+        return redirect('table');
+
+    }
+
     
 }

@@ -50,7 +50,7 @@
 
         <form
             method="POST"
-            action="{{route('activities.update',$activities->id)}}"
+            action="{{route('activities.destroy', $activities->id)}}"
             class="
                 container
                 mx-auto
@@ -61,7 +61,7 @@
                 max-w-md
             "
         >
-            @csrf @method ('PUT')
+            @csrf @method ('DELETE')
             <div class="p-2 container mx-auto max-w-full">
                 <div
                     class="
@@ -73,7 +73,7 @@
                     "
                 >
                     <p class="text-gray-800 px-2 text-left">
-                        Edit the OJT Activity:
+                        OJT Activity Details:
                     </p>
                     <div class="p-2">
                         <div>
@@ -86,6 +86,7 @@
                             value="{{$activities->title}}"
                             class="rounded p-1 bg-blue-100 w-full"
                             placeholder="Enter Activity Title"
+                            readonly
                         />
                         @error('title')
                         <p class="text-red-700 text-xs mt-1">
@@ -103,8 +104,9 @@
                             name="description"
                             value=""
                             class="rounded p-1 bg-blue-100 w-full"
-                            placeholder="{{$activities->description}}"
-                        ></textarea>
+                            placeholder=""
+                            readonly
+                        >{{$activities->description}}</textarea>
                         @error('description')
                         <p class="text-red-700 text-xs mt-1">
                             {{ $message }}
@@ -117,22 +119,13 @@
                             <i class="fa fa-tasks" aria-hidden="true"></i>
                             <Label>Process:</Label>
                         </div>
-                        <select
+                        <input
                             name="status"
-                            id=""
+                            value="{{$activities->status}}"
                             class="rounded p-1 bg-blue-100 w-full"
-                        >
-                            <option
-                                value="{{$activities->status}}"
-                                disabled
-                                selected
-                            >
-                                {{$activities->status}}
-                            </option>
-                            <option value="new">New</option>
-                            <option value="open">Open</option>
-                            <option value="closed">Closed</option>
-                        </select>
+                            readonly
+                        > 
+                        </input>
                         @error('status')
                         <p class="text-red-700 text-xs mt-1">
                             {{ $message }}
@@ -150,6 +143,7 @@
                             value="{{$activities->duedate}}"
                             type="date"
                             class="rounded p-1 bg-blue-100 w-full"
+                            readonly
                         />
                         @error('duedate')
                         <p class="text-red-700 text-xs mt-1">
@@ -157,20 +151,37 @@
                         </p>
                         @enderror
                     </div>
-
-                    <button
+                    <p class="text-gray-800 px-2 text-left mb-2">
+                        Are you sure you want to delete this Activity?
+                    </p>
+                    <div class="p-2 container mx-auto flex justify-between">
+                        <button
                         type="submit"
+                        class="
+                                            bg-red-500
+                                            border-red-900
+                                            px-4
+                                            py-1
+                                            rounded-xl
+                                            mx-10
+                                        "
+                    >
+                        Delete
+                    </button>
+                    <a
                         class="
                             bg-blue-400
                             border-blue-800
                             px-4
-                            py-1
+                            py-1.5
                             rounded-xl
                             mx-10
                         "
+                        href="/table"
                     >
-                        Update
-                    </button>
+                        Cancel
+                    </a>
+                    </div>
                 </div>
             </div>
         </form>
