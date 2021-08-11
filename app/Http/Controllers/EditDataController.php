@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 
 class EditDataController extends Controller
@@ -16,7 +17,10 @@ class EditDataController extends Controller
     public function update(Request $request, Activity $activity)
     {
         $request->validate([
-            'title'=> 'max:100',
+            'title'=> [
+                'max:100',
+            Rule::unique('Activities')->ignore($activity),
+            ],
             'description' => 'max:255',
             'status' => '',
             'duedate' => ''

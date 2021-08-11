@@ -103,8 +103,8 @@
                             name="description"
                             value=""
                             class="rounded p-1 bg-blue-100 w-full"
-                            placeholder="{{$activities->description}}"
-                        ></textarea>
+                            >{{$activities->description}}</textarea
+                        >
                         @error('description')
                         <p class="text-red-700 text-xs mt-1">
                             {{ $message }}

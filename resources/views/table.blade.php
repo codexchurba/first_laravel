@@ -170,116 +170,89 @@
         </form>
 
         <div class="p-2 container mx-auto">
-            <div class="p-4 bg-blue-200 border-2 border-blue-300 rounded-xl">
-                <section class="container mx-auto p-4">
-                    <div
-                        class="w-full mb-8 overflow-hidden rounded-lg shadow-lg"
-                    >
-                        <div class="w-full overflow-x-auto">
-                            <link
-                                rel="stylesheet"
-                                href="{{ asset('css/app.css') }}"
-                            />
+            <section class="container mx-auto p-4">
+                <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
+                    <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
 
-                            <table
+                    <table class="w-full bg-blue-300 border-2 border-blue-300">
+                        <thead>
+                            <tr
                                 class="
-                                    w-full
-                                    bg-blue-300
-                                    border-2 border-blue-300
+                                    text-md
+                                    font-semibold
+                                    tracking-wide
+                                    text-left text-gray-900
                                 "
                             >
-                                <thead>
-                                    <tr
+                                <th class="px-4 py-3">ID</th>
+                                <th class="px-4 py-3">Title</th>
+                                <th class="px-4 py-3">Description</th>
+                                <th class="px-4 py-3">Status</th>
+                                <th class="px-4 py-3">Due Date</th>
+                                <th class="px-4 py-3">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-blue-200">
+                            @foreach ($activity as $value)
+                            <tr class="text-gray-700">
+                                <td class="px-4 py-3 border">
+                                    {{$value->id}}
+                                </td>
+                                <td
+                                    class="
+                                        px-4
+                                        py-3
+                                        text-ms
+                                        font-semibold
+                                        border
+                                    "
+                                >
+                                    {{$value->title}}
+                                </td>
+                                <td class="px-4 py-3 text-xs border">
+                                    {{$value->description}}
+                                </td>
+                                <td
+                                    class="px-4 py-3 text-sm border text-center"
+                                >
+                                    {{$value->status}}
+                                </td>
+                                <td
+                                    class="px-4 py-3 text-sm border text-center"
+                                >
+                                    {{$value->duedate}}
+                                </td>
+                                <td class="px-4 py-3 text-sm border">
+                                    <a
+                                        href="{{route('activities.edit', $value->id)}}"
                                         class="
-                                            text-md
-                                            font-semibold
-                                            tracking-wide
-                                            text-left text-gray-900
+                                            bg-blue-400
+                                            border-blue-800
+                                            px-4
+                                            py-1
+                                            rounded-xl
                                         "
+                                        >Edit</a
                                     >
-                                        <th class="px-4 py-3">ID</th>
-                                        <th class="px-4 py-3">Title</th>
-                                        <th class="px-4 py-3">Description</th>
-                                        <th class="px-4 py-3">Status</th>
-                                        <th class="px-4 py-3">Due Date</th>
-                                        <th class="px-4 py-3">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="bg-blue-200">
-                                    @foreach ($activity as $value)
-                                    <tr class="text-gray-700">
-                                        <td class="px-4 py-3 border">
-                                            {{$value->id}}
-                                        </td>
-                                        <td
-                                            class="
-                                                px-4
-                                                py-3
-                                                text-ms
-                                                font-semibold
-                                                border
-                                            "
-                                        >
-                                            {{$value->title}}
-                                        </td>
-                                        <td class="px-4 py-3 text-xs border">
-                                            {{$value->description}}
-                                        </td>
-                                        <td
-                                            class="
-                                                px-4
-                                                py-3
-                                                text-sm
-                                                border
-                                                text-center
-                                            "
-                                        >
-                                            {{$value->status}}
-                                        </td>
-                                        <td
-                                            class="
-                                                px-4
-                                                py-3
-                                                text-sm
-                                                border
-                                                text-center
-                                            "
-                                        >
-                                            {{$value->duedate}}
-                                        </td>
-                                        <td class="px-4 py-3 text-sm border">
-                                            <a
-                                                href="{{route('activities.edit', $value->id)}}"
-                                                class="
-                                                    bg-blue-400
-                                                    border-blue-800
-                                                    px-4
-                                                    py-1
-                                                    rounded-xl
-                                                "
-                                                >Edit</a
-                                            >
 
-                                            <a
-                                                href="{{route('activities.destroy', $value->id)}}"
-                                                class="
-                                                    bg-red-500
-                                                    border-red-900
-                                                    px-4
-                                                    py-1
-                                                    rounded-xl
-                                                "
-                                                >Delete</a
-                                            >
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-            </div>
+                                    <a
+                                        href="{{route('activities.destroy', $value->id)}}"
+                                        class="
+                                            bg-red-500
+                                            border-red-900
+                                            px-4
+                                            py-1
+                                            rounded-xl
+                                        "
+                                        >Delete</a
+                                    >
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </section>
         </div>
     </body>
 </html>
