@@ -151,7 +151,7 @@
                         </p>
                         @enderror
                     </div>
-                    <p class="text-gray-800 px-2 text-left mb-2">
+                    <p class="text-red-700 px-2 text-left mb-2">
                         Are you sure you want to delete this Activity?
                     </p>
                     <div class="p-2 container mx-auto flex justify-between">

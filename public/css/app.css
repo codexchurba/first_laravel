@@ -596,6 +596,7 @@ video {
     max-width: 1536px;
   }
 }
+
 .sr-only {
   position: absolute;
   width: 1px;

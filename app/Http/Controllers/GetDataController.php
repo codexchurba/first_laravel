@@ -8,9 +8,13 @@ use Illuminate\Http\Request;
 class GetDataController extends Controller
 {
        public function tabledata()
-    {
-        $activity = Activity::all();
-        return view('table', ['activity'=> $activity]);
+    {   
+        
+        $activity = Activity::latest()->paginate(10);
+    
+
+        return view('table', compact('activity'))
+                ->with('i',(request()->input('page',1)-1)*10);
     }
     
 

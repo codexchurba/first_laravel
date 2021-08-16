@@ -29,3 +29,10 @@ Route::resource('activities',EditDataController::class);
 Route::get('table',[GetDataController::class, 'tabledata']);
 Route::post('create',[CreateController::class, 'store']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// vue
+Route::get('/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '.*');

@@ -15,9 +15,14 @@
             src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
             defer
         ></script>
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer>
+    </script>
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
     </head>
     <body class="bg-blue-100">
-        <main>
+        <div id="app">
+            <app>
             <h1
                 class="p-5 mx-auto text-center text-blue-900 font-bold text-2xl"
             >
@@ -46,5 +51,8 @@
                 </div>
             </div>
         </main>
+    </app>
+</div>
+<script src="{{ mix('js/app.js') }}"></script>
     </body>
 </html>
