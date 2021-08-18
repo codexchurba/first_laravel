@@ -7,6 +7,7 @@
         <title>First Laravel Mini Project</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
         <script src="https://use.fontawesome.com/b494c279b5.js"></script>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
         <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"

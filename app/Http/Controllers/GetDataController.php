@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Http\Resources\ActivityResource;
 use Illuminate\Http\Request;
 
 class GetDataController extends Controller
@@ -10,13 +11,19 @@ class GetDataController extends Controller
        public function tabledata()
     {   
         
-        $activity = Activity::latest()->paginate(10);
-    
 
-        return view('table', compact('activity'))
-                ->with('i',(request()->input('page',1)-1)*10);
+        $activity = Activity::all();
+
+        return view('table', compact('activity'));
     }
-    
+
+    public function destroy(Activity $activity)
+    {    
+        $activity->delete();
+        session()->flash('success', 'OJT Activity Deleted Succesfully!');
+        return redirect('table');
+
+    }
 
     
 }

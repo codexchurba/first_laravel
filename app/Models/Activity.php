@@ -15,4 +15,8 @@ class Activity extends Model
         'status',
         'duedate',
     ];
+
+    public function title() {
+        return $this->belongsTo(Title::class, 'title_id');
+    }
 }

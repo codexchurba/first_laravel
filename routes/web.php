@@ -21,18 +21,21 @@ Route::get('/', function () {
 })->name('index');
 
 // go to a page
-
+Route::get('/table', function () {
+    return view('table');
+})->name('table');
+Route::get('/table/', function () {
+    return view('show');
+})->name('show');
 
 
 Route::resource('activities',GetDataController::class);
 Route::resource('activities',EditDataController::class);
-Route::get('table',[GetDataController::class, 'tabledata']);
 Route::post('create',[CreateController::class, 'store']);
+Route::get('/table', [GetDataController::class, 'tabledata']);
 
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// vue
-Route::get('/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '.*');
