@@ -1965,6 +1965,144 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -38361,14 +38499,14 @@ var render = function() {
           _vm._v(" "),
           _c(
             "table",
-            { staticClass: "w-full bg-blue-300 border-2 border-blue-300" },
+            { staticClass: "w-full  border-2 border-blue-300" },
             [
               _vm._m(0),
               _vm._v(" "),
               _vm._l(_vm.activity.data, function(item) {
                 return _c(
                   "tr",
-                  { key: item.id, staticClass: "text-gray-700" },
+                  { key: item.id, staticClass: "text-gray-700 bg-blue-200" },
                   [
                     _c("td", { staticClass: "px-4 py-3 border" }, [
                       _vm._v(
@@ -38430,7 +38568,11 @@ var render = function() {
                         "button",
                         {
                           staticClass:
-                            "\n                                        bg-blue-400\n                                        border-blue-800\n                                        px-4\n                                        py-1\n                                        rounded-xl\n                                    "
+                            "\n                                        bg-blue-400\n                                        border-blue-800\n                                        px-4\n                                        py-1\n                                        rounded-xl\n                                    ",
+                          attrs: {
+                            "data-toggle": "modal",
+                            "data-target": "#exampleModalCenter"
+                          }
                         },
                         [
                           _vm._v(
@@ -38464,6 +38606,144 @@ var render = function() {
             2
           ),
           _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "modal fade",
+              attrs: {
+                id: "exampleModalCenter",
+                tabindex: "-1",
+                role: "dialog",
+                "aria-labelledby": "exampleModalCenterTitle",
+                "aria-hidden": "true"
+              }
+            },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "modal-dialog modal-dialog-centered",
+                  attrs: { role: "document" }
+                },
+                [
+                  _c("div", { staticClass: "modal-content " }, [
+                    _vm._m(1),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-body bg-blue-100" }, [
+                      _c(
+                        "div",
+                        { staticClass: "p-2 container mx-auto max-w-full" },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "\n                    p-4\n                    bg-blue-200\n                    border-2 border-blue-300\n                    rounded-xl\n                    m-auto\n                "
+                            },
+                            [
+                              _c("div", { staticClass: "p-2" }, [
+                                _c(
+                                  "div",
+                                  [
+                                    _c("i", {
+                                      staticClass: "fa fa-tag p-1",
+                                      attrs: { "aria-hidden": "true" }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("Label", [_vm._v("Title:")])
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c("input", {
+                                  staticClass: "rounded p-1 bg-blue-100 w-full",
+                                  attrs: {
+                                    name: "title",
+                                    type: "text",
+                                    placeholder: "Enter Activity Title"
+                                  }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "p-2" }, [
+                                _c(
+                                  "div",
+                                  [
+                                    _c("i", { staticClass: "fas fa-file-alt" }),
+                                    _vm._v(" "),
+                                    _c("Label", [_vm._v("Description:")])
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c("textarea", {
+                                  staticClass: "rounded p-1 bg-blue-100 w-full",
+                                  attrs: { name: "description", value: "" }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "px-2 pb-2" }, [
+                                _c(
+                                  "div",
+                                  [
+                                    _c("i", {
+                                      staticClass: "fa fa-tasks",
+                                      attrs: { "aria-hidden": "true" }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("Label", [_vm._v("Process:")])
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _vm._m(2)
+                              ]),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "px-2 pb-2" }, [
+                                _c(
+                                  "div",
+                                  [
+                                    _c("i", {
+                                      staticClass: "fas fa-stopwatch"
+                                    }),
+                                    _vm._v(" "),
+                                    _c("Label", [_vm._v("Due Date:")])
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c("input", {
+                                  staticClass: "rounded p-1 bg-blue-100 w-full",
+                                  attrs: { name: "duedate", type: "date" }
+                                })
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "button",
+                                {
+                                  staticClass:
+                                    "\n                        bg-blue-400\n                        border-blue-800\n                        px-4\n                        py-1\n                        rounded-xl\n                        mx-10\n                    ",
+                                  attrs: { type: "submit" }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                                        Update\n                                    "
+                                  )
+                                ]
+                              )
+                            ]
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(3)
+                  ])
+                ]
+              )
+            ]
+          ),
+          _vm._v(" "),
           _c("div", { staticClass: "row mt-1" }, [
             _c(
               "div",
@@ -38491,7 +38771,7 @@ var staticRenderFns = [
       "tr",
       {
         staticClass:
-          "\n                                text-md\n                                font-semibold\n                                tracking-wide\n                                text-left text-gray-900\n                            "
+          " bg-blue-300\n                                text-md\n                                font-semibold\n                                tracking-wide\n                                text-left text-gray-900\n                            "
       },
       [
         _c("th", { staticClass: "px-4 py-3" }, [_vm._v("ID")]),
@@ -38509,6 +38789,85 @@ var staticRenderFns = [
         _c("th", { staticClass: "px-4 py-3" }, [_vm._v("Action")])
       ]
     )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header bg-blue-100" }, [
+      _c(
+        "h5",
+        { staticClass: "modal-title", attrs: { id: "exampleModalLongTitle" } },
+        [
+          _vm._v(
+            "\n                                Edit the OJT Activity:\n                            "
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: {
+            type: "button",
+            "data-dismiss": "modal",
+            "aria-label": "Close"
+          }
+        },
+        [_c("span", { attrs: { "aria-hidden": "true" } }, [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "select",
+      {
+        staticClass: "rounded p-1 bg-blue-100 w-full",
+        attrs: { name: "status", id: "" }
+      },
+      [
+        _c("option", { attrs: { disabled: "", selected: "" } }),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "new" } }, [_vm._v("New")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "open" } }, [_vm._v("Open")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "closed" } }, [_vm._v("Closed")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer bg-blue-100" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [
+          _vm._v(
+            "\n                                Close\n                            "
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        { staticClass: "btn btn-primary", attrs: { type: "button" } },
+        [
+          _vm._v(
+            "\n                                Save changes\n                            "
+          )
+        ]
+      )
+    ])
   }
 ]
 render._withStripped = true

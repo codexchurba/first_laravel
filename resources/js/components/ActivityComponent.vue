@@ -30,9 +30,9 @@
                         />
                     </div>
                 </div>
-                <table class="w-full bg-blue-300 border-2 border-blue-300">
+                <table class="w-full  border-2 border-blue-300">
                     <tr
-                        class="
+                        class=" bg-blue-300
                                     text-md
                                     font-semibold
                                     tracking-wide
@@ -51,7 +51,7 @@
                     <tr
                         v-for="item in activity.data"
                         :key="item.id"
-                        class="text-gray-700"
+                        class="text-gray-700 bg-blue-200"
                     >
                         <td class="px-4 py-3 border">
                             {{ item.id }}
@@ -78,6 +78,8 @@
                         </td>
                         <td class="px-4 py-3 text-sm border">
                             <button
+                                data-toggle="modal"
+                                data-target="#exampleModalCenter"
                                 class="
                                             bg-blue-400
                                             border-blue-800
@@ -105,6 +107,142 @@
                     </tr>
                 </table>
 
+                <div
+                    class="modal fade"
+                    id="exampleModalCenter"
+                    tabindex="-1"
+                    role="dialog"
+                    aria-labelledby="exampleModalCenterTitle"
+                    aria-hidden="true"
+                >
+                    <div
+                        class="modal-dialog modal-dialog-centered"
+                        role="document"
+                    >
+                        <div class="modal-content ">
+                            <div class="modal-header bg-blue-100">
+                                <h5
+                                    class="modal-title"
+                                    id="exampleModalLongTitle"
+                                >
+                                    Edit the OJT Activity:
+                                </h5>
+                                <button
+                                    type="button"
+                                    class="close"
+                                    data-dismiss="modal"
+                                    aria-label="Close"
+                                >
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body bg-blue-100">
+                                <div class="p-2 container mx-auto max-w-full">
+                                    <div
+                                        class="
+                        p-4
+                        bg-blue-200
+                        border-2 border-blue-300
+                        rounded-xl
+                        m-auto
+                    "
+                                    >
+                                        <div class="p-2">
+                                            <div>
+                                                <i
+                                                    class="fa fa-tag p-1"
+                                                    aria-hidden="true"
+                                                ></i>
+                                                <Label>Title:</Label>
+                                            </div>
+                                            <input
+                                                name="title"
+                                                type="text"
+                                                class="rounded p-1 bg-blue-100 w-full"
+                                                placeholder="Enter Activity Title"
+                                            />
+                                        </div>
+
+                                        <div class="p-2">
+                                            <div>
+                                                <i class="fas fa-file-alt"></i>
+                                                <Label>Description:</Label>
+                                            </div>
+                                            <textarea
+                                                name="description"
+                                                value=""
+                                                class="rounded p-1 bg-blue-100 w-full"
+                                            ></textarea>
+                                        </div>
+
+                                        <div class="px-2 pb-2">
+                                            <div>
+                                                <i
+                                                    class="fa fa-tasks"
+                                                    aria-hidden="true"
+                                                ></i>
+                                                <Label>Process:</Label>
+                                            </div>
+                                            <select
+                                                name="status"
+                                                id=""
+                                                class="rounded p-1 bg-blue-100 w-full"
+                                            >
+                                                <option disabled selected>
+                                                </option>
+                                                <option value="new">New</option>
+                                                <option value="open"
+                                                    >Open</option
+                                                >
+                                                <option value="closed"
+                                                    >Closed</option
+                                                >
+                                            </select>
+                                        </div>
+
+                                        <div class="px-2 pb-2">
+                                            <div>
+                                                <i class="fas fa-stopwatch"></i>
+                                                <Label>Due Date:</Label>
+                                            </div>
+                                            <input
+                                                name="duedate"
+                                                type="date"
+                                                class="rounded p-1 bg-blue-100 w-full"
+                                            />
+                                        </div>
+
+                                        <button
+                                            type="submit"
+                                            class="
+                            bg-blue-400
+                            border-blue-800
+                            px-4
+                            py-1
+                            rounded-xl
+                            mx-10
+                        "
+                                        >
+                                            Update
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer bg-blue-100">
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    data-dismiss="modal"
+                                >
+                                    Close
+                                </button>
+                                <button type="button" class="btn btn-primary">
+                                    Save changes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row mt-1">
                     <div class="col-sm-6 offset-5">
                         <pagination
