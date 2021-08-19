@@ -1968,23 +1968,15 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       activity: {},
-      paginate: 10,
-      search: ""
+      paginate: 10
     };
   },
   watch: {
-    paginate: function paginate(value) {
+    paginate: function paginate() {
       this.getResults();
     }
   },
   methods: {
-    submit: function submit() {
-      axios.post("table", this.form).then(function (response) {
-        alert("success");
-      })["catch"](function (error) {
-        console.log(error);
-      });
-    },
     getResults: function getResults() {
       var _this = this;
 

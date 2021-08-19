@@ -122,29 +122,17 @@ export default {
     data() {
         return {
             activity: {},
-            paginate: 10,
-            search: ""
+            paginate: 10
         };
     },
 
     watch: {
-        paginate: function(value) {
+        paginate: function() {
             this.getResults();
         }
     },
 
     methods: {
-        submit() {
-            axios
-                .post("table", this.form)
-                .then(function(response) {
-                    alert("success");
-                })
-                .catch(function(error) {
-                    console.log(error);
-                });
-        },
-
         getResults(page = 1) {
             axios
                 .get("/api/table?page=" + page + "&paginate=" + this.paginate)
