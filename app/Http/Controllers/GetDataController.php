@@ -11,7 +11,11 @@ class GetDataController extends Controller
        public function tabledata()
     {   
         $paginate = request('paginate', 10);
-        $activity = Activity::paginate($paginate);
+        $search = request('search', "");
+
+        $activity = Activity::latest()
+        ->search(trim($search))
+        ->paginate($paginate);
         return ActivityResource::collection($activity);
     }
 

@@ -1964,15 +1964,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       activity: {},
-      paginate: 10
+      paginate: 10,
+      search: ""
     };
   },
   watch: {
     paginate: function paginate() {
+      this.getResults();
+    },
+    search: function search() {
       this.getResults();
     }
   },
@@ -1981,7 +1986,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get("/api/table?page=" + page + "&paginate=" + this.paginate).then(function (response) {
+      axios.get("/api/table?page=" + page + "&paginate=" + this.paginate + "&search=" + this.search).then(function (response) {
         _this.activity = response.data;
       });
     }
@@ -38309,14 +38314,47 @@ var render = function() {
             _vm._v(" "),
             _c("div", { staticClass: "col-span-2" }),
             _vm._v(" "),
-            _vm._m(0)
+            _c(
+              "div",
+              {
+                staticClass:
+                  "d-flex align-items-center ml-4 col-span-3 py-1 px-2"
+              },
+              [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.search,
+                      expression: "search"
+                    }
+                  ],
+                  staticClass: "rounded p-1 w-full bg-white",
+                  attrs: {
+                    name: "search",
+                    type: "text",
+                    placeholder: "Search"
+                  },
+                  domProps: { value: _vm.search },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.search = $event.target.value
+                    }
+                  }
+                })
+              ]
+            )
           ]),
           _vm._v(" "),
           _c(
             "table",
             { staticClass: "w-full bg-blue-300 border-2 border-blue-300" },
             [
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _vm._l(_vm.activity.data, function(item) {
                 return _c(
@@ -38436,21 +38474,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "d-flex align-items-center ml-4 col-span-3 py-1 px-2" },
-      [
-        _c("input", {
-          staticClass: "rounded p-1 w-full bg-white",
-          attrs: { name: "search", type: "text", placeholder: "Search" }
-        })
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

@@ -16,7 +16,15 @@ class Activity extends Model
         'duedate',
     ];
 
-    public function title() {
-        return $this->belongsTo(Title::class, 'title_id');
+    public function scopeSearch($query, $term)
+    {
+        $term = "%$term%";
+
+        $query->where(function ($query) use ($term) {
+            $query->where('title', 'like', $term)
+                ->orWhere('description', 'like', $term)
+                ->orWhere('status', 'like', $term)
+                ->orWhere('duedate', 'like', $term);
+        });
     }
 }

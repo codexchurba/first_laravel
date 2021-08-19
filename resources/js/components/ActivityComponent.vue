@@ -22,6 +22,7 @@
                         class="d-flex align-items-center ml-4 col-span-3 py-1 px-2"
                     >
                         <input
+                            v-model="search"
                             name="search"
                             type="text"
                             class="rounded p-1 w-full bg-white"
@@ -122,12 +123,16 @@ export default {
     data() {
         return {
             activity: {},
-            paginate: 10
+            paginate: 10,
+            search: ""
         };
     },
 
     watch: {
         paginate: function() {
+            this.getResults();
+        },
+        search: function() {
             this.getResults();
         }
     },
@@ -135,7 +140,14 @@ export default {
     methods: {
         getResults(page = 1) {
             axios
-                .get("/api/table?page=" + page + "&paginate=" + this.paginate)
+                .get(
+                    "/api/table?page=" +
+                        page +
+                        "&paginate=" +
+                        this.paginate +
+                        "&search=" +
+                        this.search
+                )
                 .then(response => {
                     this.activity = response.data;
                 });
