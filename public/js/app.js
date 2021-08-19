@@ -1989,6 +1989,15 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/table?page=" + page + "&paginate=" + this.paginate + "&search=" + this.search).then(function (response) {
         _this.activity = response.data;
       });
+    },
+    remove: function remove(activityId) {
+      var _this2 = this;
+
+      axios["delete"]("/api/table/delete/" + activityId).then(function (response) {
+        alert("Activity Deleted Succesfully!");
+
+        _this2.getResults();
+      });
     }
   },
   mounted: function mounted() {
@@ -38257,7 +38266,7 @@ var render = function() {
         "div",
         { staticClass: "w-full mb-8 overflow-hidden rounded-lg shadow-lg" },
         [
-          _c("div", { staticClass: "grid grid-cols-7" }, [
+          _c("div", { staticClass: "grid grid-cols-7 mt-3 px-2" }, [
             _c(
               "div",
               { staticClass: "d-flex align-items-center ml-4 col-span-2" },
@@ -38334,7 +38343,7 @@ var render = function() {
                   attrs: {
                     name: "search",
                     type: "text",
-                    placeholder: "Search"
+                    placeholder: "Filter the table"
                   },
                   domProps: { value: _vm.search },
                   on: {
@@ -38437,7 +38446,7 @@ var render = function() {
                             "\n                                        bg-red-500\n                                        border-red-900\n                                        px-4\n                                        py-1\n                                        rounded-xl\n                                    ",
                           on: {
                             click: function($event) {
-                              return _vm.remove(item, _vm.index)
+                              return _vm.remove(item.id)
                             }
                           }
                         },
@@ -38455,7 +38464,7 @@ var render = function() {
             2
           ),
           _vm._v(" "),
-          _c("div", { staticClass: "row mt-4" }, [
+          _c("div", { staticClass: "row mt-1" }, [
             _c(
               "div",
               { staticClass: "col-sm-6 offset-5" },

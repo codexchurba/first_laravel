@@ -23,7 +23,7 @@ class GetDataController extends Controller
     {    
         $activity->delete();
         session()->flash('success', 'OJT Activity Deleted Succesfully!');
-        return redirect('table');
+        return response()->noContent();
 
     }
 

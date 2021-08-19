@@ -2,7 +2,7 @@
     <div class="p-2 container mx-auto">
         <section class="container mx-auto p-4">
             <div class="w-full mb-8 overflow-hidden rounded-lg shadow-lg">
-                <div class="grid grid-cols-7">
+                <div class="grid grid-cols-7 mt-3 px-2">
                     <div class="d-flex align-items-center ml-4 col-span-2">
                         <label for="paginate" class="px-2 mt-2"> Show</label>
                         <select
@@ -26,7 +26,7 @@
                             name="search"
                             type="text"
                             class="rounded p-1 w-full bg-white"
-                            placeholder="Search"
+                            placeholder="Filter the table"
                         />
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                             </button>
 
                             <button
-                                @click="remove(item, index)"
+                                @click="remove(item.id)"
                                 class="
                                             bg-red-500
                                             border-red-900
@@ -105,7 +105,7 @@
                     </tr>
                 </table>
 
-                <div class="row mt-4">
+                <div class="row mt-1">
                     <div class="col-sm-6 offset-5">
                         <pagination
                             :data="activity"
@@ -151,6 +151,12 @@ export default {
                 .then(response => {
                     this.activity = response.data;
                 });
+        },
+        remove(activityId) {
+            axios.delete("/api/table/delete/" + activityId).then(response => {
+                alert("Activity Deleted Succesfully!");
+                this.getResults();
+            });
         }
     },
 

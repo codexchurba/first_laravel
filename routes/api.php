@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\GetDataController;
+use App\Http\Controllers\EditDataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/table', [GetDataController::class, 'tabledata']);
-
+Route::delete('/table/delete/{activity}', [EditDataController::class, 'destroy']);
