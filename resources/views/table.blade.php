@@ -28,6 +28,9 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}" />
     </head>
     <body class="bg-blue-100">
+        <nav class="navbar navbar-light bg-blue-300">
+            <a class="navbar-brand" href="#">OJT Activity List</a>
+          </nav>
         <div id="app">
                 <div class="p-2 container mx-auto mt-4">
                     <a

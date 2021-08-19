@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Activity;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
+use Exception;
 
 class EditDataController extends Controller
 {

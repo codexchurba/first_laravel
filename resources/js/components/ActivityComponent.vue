@@ -78,8 +78,7 @@
                         </td>
                         <td class="px-4 py-3 text-sm border">
                             <button
-                                data-toggle="modal"
-                                data-target="#exampleModalCenter"
+                                @click="edit(item)"
                                 class="
                                             bg-blue-400
                                             border-blue-800
@@ -109,7 +108,7 @@
 
                 <div
                     class="modal fade"
-                    id="exampleModalCenter"
+                    id="editModal"
                     tabindex="-1"
                     role="dialog"
                     aria-labelledby="exampleModalCenterTitle"
@@ -125,7 +124,7 @@
                                     class="modal-title"
                                     id="exampleModalLongTitle"
                                 >
-                                    Edit the OJT Activity:
+                                    Edit OJT Activity:
                                 </h5>
                                 <button
                                     type="button"
@@ -156,10 +155,10 @@
                                                 <Label>Title:</Label>
                                             </div>
                                             <input
+                                                v-model="form.title"
                                                 name="title"
                                                 type="text"
                                                 class="rounded p-1 bg-blue-100 w-full"
-                                                placeholder="Enter Activity Title"
                                             />
                                         </div>
 
@@ -169,6 +168,7 @@
                                                 <Label>Description:</Label>
                                             </div>
                                             <textarea
+                                                v-model="form.description"
                                                 name="description"
                                                 value=""
                                                 class="rounded p-1 bg-blue-100 w-full"
@@ -184,8 +184,9 @@
                                                 <Label>Process:</Label>
                                             </div>
                                             <select
+                                                v-model="form.status"
                                                 name="status"
-                                                id=""
+                                                value=""
                                                 class="rounded p-1 bg-blue-100 w-full"
                                             >
                                                 <option disabled selected>
@@ -206,6 +207,7 @@
                                                 <Label>Due Date:</Label>
                                             </div>
                                             <input
+                                                v-model="form.duedate"
                                                 name="duedate"
                                                 type="date"
                                                 class="rounded p-1 bg-blue-100 w-full"
@@ -213,32 +215,35 @@
                                         </div>
 
                                         <button
+                                            @click="save()"
                                             type="submit"
                                             class="
-                            bg-blue-400
-                            border-blue-800
-                            px-4
-                            py-1
-                            rounded-xl
-                            mx-10
-                        "
+                                            bg-blue-400
+                                            border-blue-800
+                                            px-4
+                                            py-1
+                                            rounded-xl
+                                             mx-10
+                                            "
                                         >
                                             Update
                                         </button>
+                                        <button
+                                            type="button"
+                                            class="
+                                            bg-blue-300
+                                            border-blue-600
+                                            px-4
+                                            py-1
+                                            rounded-xl
+                                            mx-10
+                                            "
+                                            data-dismiss="modal"
+                                        >
+                                            Close
+                                        </button>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="modal-footer bg-blue-100">
-                                <button
-                                    type="button"
-                                    class="btn btn-secondary"
-                                    data-dismiss="modal"
-                                >
-                                    Close
-                                </button>
-                                <button type="button" class="btn btn-primary">
-                                    Save changes
-                                </button>
                             </div>
                         </div>
                     </div>
@@ -262,7 +267,14 @@ export default {
         return {
             activity: {},
             paginate: 10,
-            search: ""
+            search: "",
+            form: {
+                title: null,
+                description: null,
+                status: null,
+                duedate: null
+            },
+            selectedId: null
         };
     },
 
@@ -295,6 +307,26 @@ export default {
                 alert("Activity Deleted Succesfully!");
                 this.getResults();
             });
+        },
+        edit(item) {
+            this.form.title = item.title;
+            this.form.description = item.description;
+            this.form.status = item.status;
+            this.form.duedate = item.duedate;
+            this.selectedId = item.id;
+            $("#editModal").modal("show");
+        },
+        save() {
+            const vm = this;
+            axios
+                .put(`/table/edit/${vm.selectedId}`, this.form)
+                .then(function(response) {
+                    alert("Activity has been sucessfully updated");
+                    this.getResults();
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
         }
     },
 

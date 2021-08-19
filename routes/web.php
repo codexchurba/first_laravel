@@ -27,8 +27,9 @@ Route::get('/', function () {
 })->name('index');
 
 
-Route::resource('activities',GetDataController::class);
-Route::resource('activities',EditDataController::class);
+Route::resource('activities', GetDataController::class);
+Route::resource('activities', EditDataController::class);
+Route::resource('/table/edit', EditDataController::class);
 Route::post('create',[CreateController::class, 'store']);
 
 
