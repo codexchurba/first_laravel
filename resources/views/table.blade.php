@@ -186,9 +186,7 @@
                     </div>
                 </form>
 
-                <activity-component
-                    :activity="{{ $activity }}"
-                />
+                <activity-component/>
         </div>
         <script src="{{ mix('js/app.js') }}"></script>
     </body>

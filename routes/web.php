@@ -16,23 +16,20 @@ use App\Http\Controllers\EditDataController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
 
 // go to a page
 Route::get('/table', function () {
     return view('table');
 })->name('table');
-Route::get('/table/', function () {
-    return view('show');
-})->name('show');
+
+Route::get('/', function () {
+    return view('index');
+})->name('index');
 
 
 Route::resource('activities',GetDataController::class);
 Route::resource('activities',EditDataController::class);
 Route::post('create',[CreateController::class, 'store']);
-Route::get('/table', [GetDataController::class, 'tabledata']);
 
 
 Auth::routes();

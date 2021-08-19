@@ -10,11 +10,9 @@ class GetDataController extends Controller
 {
        public function tabledata()
     {   
-        
-
-        $activity = Activity::all();
-
-        return view('table', compact('activity'));
+        $paginate = request('paginate', 10);
+        $activity = Activity::paginate(10);
+        return ActivityResource::collection($activity);
     }
 
     public function destroy(Activity $activity)

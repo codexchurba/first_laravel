@@ -1,5 +1,7 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
+const path = require("path");
+mix.alias({ ziggy: path.resolve("vendor/tightenco/ziggy/dist.vue") });
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -11,6 +13,6 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js("resources/js/app.js", "public/js")
     .vue()
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass("resources/sass/app.scss", "public/css");
