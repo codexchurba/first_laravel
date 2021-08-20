@@ -38783,7 +38783,10 @@ var render = function() {
                                     ],
                                     staticClass:
                                       "rounded p-1 bg-blue-100 w-full",
-                                    attrs: { name: "status", value: "" },
+                                    attrs: {
+                                      name: "status",
+                                      value: "item.status"
+                                    },
                                     on: {
                                       change: function($event) {
                                         var $$selectedVal = Array.prototype.filter

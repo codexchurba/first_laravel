@@ -186,7 +186,7 @@
                                             <select
                                                 v-model="form.status"
                                                 name="status"
-                                                value=""
+                                                value="item.status"
                                                 class="rounded p-1 bg-blue-100 w-full"
                                             >
                                                 <option disabled selected>
