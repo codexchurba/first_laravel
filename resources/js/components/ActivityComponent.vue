@@ -319,10 +319,16 @@ export default {
         save() {
             const vm = this;
             axios
-                .put(`/table/edit/${vm.selectedId}`, this.form)
+                .put(`activities/${vm.selectedId}`, {
+                    title: this.form.title,
+                    description: this.form.description,
+                    status: this.form.status,
+                    duedate: this.form.duedate
+                })
                 .then(function(response) {
                     alert("Activity has been sucessfully updated");
-                    this.getResults();
+                    $("#editModal").modal("hide");
+                    vm.getResults();
                 })
                 .catch(function(error) {
                     console.log(error);

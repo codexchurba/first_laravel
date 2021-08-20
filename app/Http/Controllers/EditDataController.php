@@ -26,11 +26,10 @@ class EditDataController extends Controller
             'status' => '',
             'duedate' => ''
         ]);
-
         $activity->update($request->all());
 
         session()->flash('success', 'OJT Activity Updated Succesfully!');
-        return redirect('table');
+        return view('table');
 
     }
 

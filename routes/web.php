@@ -29,9 +29,8 @@ Route::get('/', function () {
 
 Route::resource('activities', GetDataController::class);
 Route::resource('activities', EditDataController::class);
-Route::resource('/table/edit', EditDataController::class);
+Route::resource('activities/{activity}', EditDataController::class);
 Route::post('create',[CreateController::class, 'store']);
-
 
 Auth::routes();
 

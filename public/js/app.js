@@ -2159,9 +2159,15 @@ __webpack_require__.r(__webpack_exports__);
     },
     save: function save() {
       var vm = this;
-      axios.put("/table/edit/".concat(vm.selectedId), this.form).then(function (response) {
+      axios.put("activities/".concat(vm.selectedId), {
+        title: this.form.title,
+        description: this.form.description,
+        status: this.form.status,
+        duedate: this.form.duedate
+      }).then(function (response) {
         alert("Activity has been sucessfully updated");
-        this.getResults();
+        $("#editModal").modal("hide");
+        vm.getResults();
       })["catch"](function (error) {
         console.log(error);
       });
